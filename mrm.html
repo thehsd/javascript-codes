@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gender of student</title>
+  </head>
+  <body></body>
+  <script>
+    var stdArray = [
+      { name: "ali", age: 22, gender: "male" },
+      { name: "reza", age: 25, gender: "male" },
+      { name: "sara", age: 23, gender: "female" },
+      { name: "mina", age: 27, gender: "female" },
+      { name: "rasoul", age: 29, gender: "male" },
+      { name: "sanaz", age: 22, gender: "female" },
+      { name: "neda", age: 24, gender: "female" },
+      { name: "arman", age: 26, gender: "male" },
+      { name: "iman", age: 25, gender: "male" },
+    ];
+
+    var $males = 0;
+
+    for (var $i = 0; $i < stdArray["length"]; $i++) {
+      if (stdArray[$i].gender == "male") {
+        $males++;
+      }
+    }
+
+    $females = stdArray["length"] - $males;
+    console.log("Number Of Males:", $males);
+    console.log("Number Of Females:", $females);
+    // console.log(stdArray);
+  </script>
+</html>
