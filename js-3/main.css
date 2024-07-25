@@ -1,0 +1,36 @@
+.box {
+  height: 200px;
+  width: 150px;
+  display: inline-block;
+  background-color: lightcoral;
+  padding: 20px;
+}
+.box-children {
+  height: 100px;
+  width: 75px;
+  display: inline-block;
+  background-color: lightcyan;
+}
+#box {
+  width: 150px;
+  display: inline-block;
+  background-color: lightcoral;
+  padding: 20px;
+}
+.text-white {
+  color: white;
+}
+.bg-red {
+  height: 200px;
+  width: 150px;
+  display: inline-block;
+  background-color: lightcoral;
+  padding: 20px;
+}
+.bg-blue {
+  height: 200px;
+  width: 150px;
+  display: inline-block;
+  background-color: lightcyan;
+  padding: 20px;
+}
