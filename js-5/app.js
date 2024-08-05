@@ -123,7 +123,7 @@
 // //   document.getElementById("product").appendChild(tagForPrice);
 // // }
 
-var products = [
+var productsList = [
   {
     name: "product 1",
     price: 10,
@@ -165,3 +165,45 @@ var products = [
       "https://dkstatics-public.digikala.com/digikala-products/8590fddfbec8d88efc47aa73b9ac7f348d651463_1714194467.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80",
   },
 ];
+
+function createTag(tagName) {
+  return document.createElement(tagName);
+}
+
+function createProductCard(product) {
+  var card = createTag("div");
+  card.setAttribute("id", `product-${product.id}`);
+  card.classList.add("product-card");
+  productKeys = Object.keys(product);
+
+  productKeys.forEach(function (key) {
+    if (key === "imageSrc") {
+      var imgTag = createTag("img");
+      imgTag.setAttribute("src", product[key]);
+      imgTag.setAttribute("alt", product.name);
+      card.appendChild(imgTag);
+    } else if (key === "hasDiscount") {
+      var discountTag = createTag("p");
+      var resultForDiscount = "";
+      if (product[key]) {
+        resultForDiscount = "yes";
+      } else {
+        resultForDiscount = "no";
+      }
+      discountTag.innerText = key + " : " + resultForDiscount;
+      card.appendChild(discountTag);
+    } else {
+      var pTag = createTag("p");
+      pTag.innerText = key + " : " + product[key];
+      card.appendChild(pTag);
+    }
+  });
+  return card;
+}
+
+function showProducts() {
+  productsList.forEach(function (product) {
+    var productCard = createProductCard(product);
+    document.getElementById("products-list").appendChild(productCard);
+  });
+}
