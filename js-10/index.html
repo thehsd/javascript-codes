@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <title>products</title>
+</head>
+
+<body onload="getProducts()">
+    <header>
+        basket <span id="basket-count">0</span>
+    </header>
+    <main>
+        <button onclick="setToStorage()">setToStorage</button>
+        <button onclick="getToStorage()">getToStorage</button>
+        <button onclick="removeFromStorage()">removeFromStorage</button>
+        <button onclick="clearStorage()">clearStorage</button>
+        <div id="product-list">
+
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
