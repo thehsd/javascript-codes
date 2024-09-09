@@ -1,25 +1,10 @@
-import React, { useEffect, useState } from "react";
-import Button from "./components/common/button";
+import React from "react";
+import CardList from "./components/pages/CardList";
+
 function App() {
-  const [postList, setPostList] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const apiFetch = await fetch(
-        "https://jsonplaceholder.typicode.com/posts/"
-      );
-      const data = await apiFetch.json();
-      setPostList(data);
-    };
-    fetchData();
-  }, []);
-
   return (
-    <div>
-      <Button variant={"primary"}>click</Button>
-      {postList.map((post) => {
-        return <li>{post.title}</li>;
-      })}
+    <div className="bg-gradient-to-r from-cyan-500 to-blue-500">
+      <CardList />
     </div>
   );
 }
