@@ -18,7 +18,7 @@ const Routes = () => {
       element: <UsersList />,
       children: [
         {
-          path: "/users/:name",
+          path: "/users/:id",
           element: <UserPage />,
         },
       ],

@@ -1,37 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
+import UsersLayout from "../layouts/UsersLayout";
+import { UsersListContext } from "../context/userListContext";
+import { useFetchUsers } from "../services/userApi";
 
 const UsersList = () => {
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("https://jsonplaceholder.typicode.com/users");
-      const data = await res.json();
-      setUsers(data);
-    };
-    fetchData();
-
-    return () => {
-      console.log("un mounted");
-    };
-  }, []);
+  const [toggleSideBar, setToggleSideBar] = useState(true);
+  const { data: users, isFetching } = useFetchUsers();
 
   return (
     <>
-      <Link to="/" className="m-4 p-3 border border-gray-950 rounded-lg">
-        home
-      </Link>
-      <br />
-      {users.map((user) => {
-        return (
-          <div key={user.id}>
-            <Link to={`/users/${user.name}`}>{user.name}</Link>
-            <br />
-          </div>
-        );
-      })}
-      <br />
-      <Outlet />
+      {isFetching ? (
+        "loading..."
+      ) : (
+        <UsersListContext.Provider
+          value={{ usersList: users, toggleSideBar, setToggleSideBar }}
+        >
+          <button
+            className="border border-gray-800 rounded-md p-3 m-3"
+            onClick={() => setToggleSideBar(!toggleSideBar)}
+          >
+            toggle sidebar
+          </button>
+          <UsersLayout UsersList={users}>
+            <Outlet />
+          </UsersLayout>
+        </UsersListContext.Provider>
+      )}
     </>
   );
 };
