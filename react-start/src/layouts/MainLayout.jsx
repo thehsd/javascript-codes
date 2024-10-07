@@ -1,14 +1,12 @@
 import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../Components/Header";
 
 const MainLayout = ({ children }) => {
   return (
-    <div className="min-h-screen">
-      {/* <Header /> */}
+    <>
+      <Header />
       {children}
-      {/* <Footer /> */}
-    </div>
+    </>
   );
 };
 

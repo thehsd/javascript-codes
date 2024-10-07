@@ -1,11 +1,7 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
-import RouteOne from "./pages/RouteOne";
-import SubRouteOne from "./pages/SubRouteOne";
-import RouteTwo from "./pages/RouteTwo";
 import Home from "./pages/Home";
-import UsersList from "./pages/UsersList";
-import UserPage from "./pages/UserPage";
+import Basket from "./pages/Basket";
 
 const Routes = () => {
   const routes = useRoutes([
@@ -14,14 +10,8 @@ const Routes = () => {
       element: <Home />,
     },
     {
-      path: "/users",
-      element: <UsersList />,
-      children: [
-        {
-          path: "/users/:id",
-          element: <UserPage />,
-        },
-      ],
+      path: "/basket",
+      element: <Basket />,
     },
   ]);
   return routes;
